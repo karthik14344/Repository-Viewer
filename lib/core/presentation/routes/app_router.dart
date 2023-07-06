@@ -1,7 +1,6 @@
 // flutter pub run build_runner watch --delete-conflicting-outputs
 
 import 'package:auto_route/auto_route.dart';
-import 'package:repo_viewer/auth/presentation/authorization_page.dart';
 
 import 'package:repo_viewer/core/presentation/routes/app_router.gr.dart';
 

@@ -9,6 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i5;
+import 'package:flutter/material.dart' as _i6;
 import 'package:repo_viewer/auth/presentation/authorization_page.dart' as _i4;
 import 'package:repo_viewer/auth/presentation/sign_in_page.dart' as _i1;
 import 'package:repo_viewer/splash/presentation/splash_page.dart' as _i2;
@@ -39,9 +40,15 @@ abstract class $AppRouter extends _i5.RootStackRouter {
       );
     },
     AuthorizationRoute.name: (routeData) {
+      final args = routeData.argsAs<AuthorizationRouteArgs>();
       return _i5.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.AuthorizationPage(),
+        child: _i4.AuthorizationPage(
+          key: args.key,
+          authorizationUrl: args.authorizationUrl,
+          onAuthorizationCodeRedirectAttempt:
+              args.onAuthorizationCodeRedirectAttempt,
+        ),
       );
     },
   };
@@ -91,14 +98,44 @@ class StarredReposRoute extends _i5.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.AuthorizationPage]
-class AuthorizationRoute extends _i5.PageRouteInfo<void> {
-  const AuthorizationRoute({List<_i5.PageRouteInfo>? children})
-      : super(
+class AuthorizationRoute extends _i5.PageRouteInfo<AuthorizationRouteArgs> {
+  AuthorizationRoute({
+    _i6.Key? key,
+    required Uri authorizationUrl,
+    required void Function(Uri) onAuthorizationCodeRedirectAttempt,
+    List<_i5.PageRouteInfo>? children,
+  }) : super(
           AuthorizationRoute.name,
+          args: AuthorizationRouteArgs(
+            key: key,
+            authorizationUrl: authorizationUrl,
+            onAuthorizationCodeRedirectAttempt:
+                onAuthorizationCodeRedirectAttempt,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'AuthorizationRoute';
 
-  static const _i5.PageInfo<void> page = _i5.PageInfo<void>(name);
+  static const _i5.PageInfo<AuthorizationRouteArgs> page =
+      _i5.PageInfo<AuthorizationRouteArgs>(name);
+}
+
+class AuthorizationRouteArgs {
+  const AuthorizationRouteArgs({
+    this.key,
+    required this.authorizationUrl,
+    required this.onAuthorizationCodeRedirectAttempt,
+  });
+
+  final _i6.Key? key;
+
+  final Uri authorizationUrl;
+
+  final void Function(Uri) onAuthorizationCodeRedirectAttempt;
+
+  @override
+  String toString() {
+    return 'AuthorizationRouteArgs{key: $key, authorizationUrl: $authorizationUrl, onAuthorizationCodeRedirectAttempt: $onAuthorizationCodeRedirectAttempt}';
+  }
 }
