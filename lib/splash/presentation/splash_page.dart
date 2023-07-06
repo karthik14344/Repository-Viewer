@@ -18,7 +18,8 @@ class SplashPage extends StatelessWidget {
               MdiIcons.github,
               size: 150,
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 16), // for spacing between yje
+            //logo and progress indicator
             const LinearProgressIndicator(),
           ],
         ),
