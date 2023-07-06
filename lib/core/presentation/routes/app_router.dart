@@ -1,6 +1,10 @@
 import 'package:auto_route/auto_route.dart';
 
-import 'app_router.gr.dart';
+import 'package:repo_viewer/core/presentation/routes/app_router.gr.dart';
+
+//Routes are used as navigators indeed these are navigators 2.0.. this code is wrote
+// according to the documentation of Routes pacakage
+//https://www.youtube.com/watch?v=c84S_tB-Vz8
 
 @AutoRouterConfig(
   replaceInRouteName: 'Page,Route',

@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 
 @RoutePage()
 class SplashPage extends StatelessWidget {
-  static var page;
-
   const SplashPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return const Scaffold();
   }
 }
