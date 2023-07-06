@@ -12,18 +12,37 @@ class SignInPage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Center(
-          child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-            Icon(
-              MdiIcons.github,
-              size: 150,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 48),
+            child: SingleChildScrollView(
+              // this singlechildscrollview is to overcome problem of
+              // signin Button overflow when we rotate our mobile
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Icon(
+                      MdiIcons.github,
+                      size: 150,
+                    ),
+                    const SizedBox(height: 16),
+                    Text(
+                      "Welcome to \nRepo Viewer",
+                      style: Theme.of(context).textTheme.headlineLarge,
+                      textAlign: TextAlign.center,
+                    ),
+                    const SizedBox(height: 32),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(Colors.green),
+                      ),
+                      child: Text('Sign In'),
+                    ),
+                  ]),
             ),
-            const SizedBox(height: 16),
-            Text(
-              "Welcome to \nRepo Viewer",
-              style: Theme.of(context).textTheme.headlineLarge,
-              textAlign: TextAlign.center,
-            ),
-          ]),
+          ),
         ),
       ),
     );
