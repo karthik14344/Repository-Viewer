@@ -1,4 +1,7 @@
+// flutter pub run build_runner watch --delete-conflicting-outputs
+
 import 'package:auto_route/auto_route.dart';
+import 'package:repo_viewer/auth/presentation/authorization_page.dart';
 
 import 'package:repo_viewer/core/presentation/routes/app_router.gr.dart';
 
@@ -13,7 +16,8 @@ class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(page: SplashRoute.page, initial: true),
-        AutoRoute(page: SignInRoute.page),
-        AutoRoute(page: StarredReposRoute.page),
+        AutoRoute(page: SignInRoute.page, path: '/sign-In'),
+        AutoRoute(page: AuthorizationRoute.page, path: '/auth'),
+        AutoRoute(page: StarredReposRoute.page, path: '/starred'),
       ];
 }
