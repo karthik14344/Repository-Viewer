@@ -20,7 +20,11 @@ UserDTO _$UserDTOFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserDTO {
-  String get name => throw _privateConstructorUsedError;
+  @JsonKey(name: 'login')
+  String get name =>
+      throw _privateConstructorUsedError; //this is to change the name in produced 'user_dto.g.dart' file as per the
+//GET request produced in github.rest
+  @JsonKey(name: 'avatar_url')
   String get avatarUrl => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +37,9 @@ abstract class $UserDTOCopyWith<$Res> {
   factory $UserDTOCopyWith(UserDTO value, $Res Function(UserDTO) then) =
       _$UserDTOCopyWithImpl<$Res, UserDTO>;
   @useResult
-  $Res call({String name, String avatarUrl});
+  $Res call(
+      {@JsonKey(name: 'login') String name,
+      @JsonKey(name: 'avatar_url') String avatarUrl});
 }
 
 /// @nodoc
@@ -72,7 +78,9 @@ abstract class _$$_UserDTOCopyWith<$Res> implements $UserDTOCopyWith<$Res> {
       __$$_UserDTOCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String avatarUrl});
+  $Res call(
+      {@JsonKey(name: 'login') String name,
+      @JsonKey(name: 'avatar_url') String avatarUrl});
 }
 
 /// @nodoc
@@ -104,14 +112,21 @@ class __$$_UserDTOCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UserDTO extends _UserDTO {
-  const _$_UserDTO({required this.name, required this.avatarUrl}) : super._();
+  const _$_UserDTO(
+      {@JsonKey(name: 'login') required this.name,
+      @JsonKey(name: 'avatar_url') required this.avatarUrl})
+      : super._();
 
   factory _$_UserDTO.fromJson(Map<String, dynamic> json) =>
       _$$_UserDTOFromJson(json);
 
   @override
+  @JsonKey(name: 'login')
   final String name;
+//this is to change the name in produced 'user_dto.g.dart' file as per the
+//GET request produced in github.rest
   @override
+  @JsonKey(name: 'avatar_url')
   final String avatarUrl;
 
   @override
@@ -149,15 +164,19 @@ class _$_UserDTO extends _UserDTO {
 
 abstract class _UserDTO extends UserDTO {
   const factory _UserDTO(
-      {required final String name,
-      required final String avatarUrl}) = _$_UserDTO;
+          {@JsonKey(name: 'login') required final String name,
+          @JsonKey(name: 'avatar_url') required final String avatarUrl}) =
+      _$_UserDTO;
   const _UserDTO._() : super._();
 
   factory _UserDTO.fromJson(Map<String, dynamic> json) = _$_UserDTO.fromJson;
 
   @override
+  @JsonKey(name: 'login')
   String get name;
-  @override
+  @override //this is to change the name in produced 'user_dto.g.dart' file as per the
+//GET request produced in github.rest
+  @JsonKey(name: 'avatar_url')
   String get avatarUrl;
   @override
   @JsonKey(ignore: true)
