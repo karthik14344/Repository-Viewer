@@ -46,4 +46,5 @@ Accept: {{acceptHeader}}
 //to check whether the repository is starred or not
 GET  {{baseUrl}}/user/starred/karthik14344/foundation-stateful-widget
 Authorization: bearer {{token}}
+
 Accept: {{acceptHeader}}

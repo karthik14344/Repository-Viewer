@@ -13,7 +13,7 @@ import 'package:flutter/material.dart' as _i6;
 import 'package:repo_viewer/auth/presentation/authorization_page.dart' as _i4;
 import 'package:repo_viewer/auth/presentation/sign_in_page.dart' as _i1;
 import 'package:repo_viewer/splash/presentation/splash_page.dart' as _i2;
-import 'package:repo_viewer/starred_repos/presentation/starred_repos_page.dart'
+import 'package:repo_viewer/github/detail/starred_repos/presentation/starred_repos_page.dart'
     as _i3;
 
 abstract class $AppRouter extends _i5.RootStackRouter {
