@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:repo_viewer/auth/infrastructure/github_authenticator.dart';
@@ -24,6 +26,17 @@ class AuthorizationPage extends StatefulWidget {
 }
 
 class _AuthorizationPageState extends State<AuthorizationPage> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    if (Platform.isAndroid) {
+      WebView.platform =
+          SurfaceAndroidWebView(); //identifies whether the device is android or not
+      //enables the paste option in textfield
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

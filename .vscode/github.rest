@@ -1,0 +1,49 @@
+
+@token= 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
+
+@acceptHeader=application/vnd.github.v3.html+json
+
+@baseUrl=https://api.github.com
+
+
+
+//for showing the starred repositories
+GET {{baseUrl}}/user/starred
+  ?page=1
+Authorization: bearer  {{token}}
+Accept: {{acceptHeader}}
+
+
+###
+//for searching the repositories
+GET {{baseUrl}}/search/repositories
+  ?q=flutter
+  &page=1
+Authorization: bearer {{token}}
+Accept: {{acceptHeader}}
+ 
+###
+//to read a certain repository
+Get {{baseUrl}}/repos/flutter/flutter/readme
+Authorization: bearer {{token}}
+Accept: {{acceptHeader}}
+
+###
+//to star a certian repository
+PUT {{baseUrl}}/user/starred/karthik14344/foundation-stateful-widget
+Authorization: bearer {{token}}
+Content-Length: 0
+Accept: {{acceptHeader}}
+
+
+###
+//to unstar a certain repository
+DELETE  {{baseUrl}}/user/starred/karthik14344/foundation-stateful-widget
+Authorization: bearer {{token}}
+Accept: {{acceptHeader}}
+
+###
+//to check whether the repository is starred or not
+GET  {{baseUrl}}/user/starred/karthik14344/foundation-stateful-widget
+Authorization: bearer {{token}}
+Accept: {{acceptHeader}}
