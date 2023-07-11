@@ -30,7 +30,7 @@ Accept: {{acceptHeader}}
 
 ###
 //to star a certian repository
-PUT {{baseUrl}}/user/starred/karthik14344/foundation-stateful-widget
+PUT {{baseUrl}}/user/starred/devoncarew/dart-lang/build
 Authorization: bearer {{token}}
 Content-Length: 0
 Accept: {{acceptHeader}}
@@ -38,13 +38,13 @@ Accept: {{acceptHeader}}
 
 ###
 //to unstar a certain repository
-DELETE  {{baseUrl}}/user/starred/karthik14344/foundation-stateful-widget
+DELETE  {{baseUrl}}/user/starred/devoncarew/dart-lang/build
 Authorization: bearer {{token}}
 Accept: {{acceptHeader}}
 
 ###
 //to check whether the repository is starred or not
-GET  {{baseUrl}}/user/starred/karthik14344/foundation-stateful-widget
+GET  {{baseUrl}}/user/starred/devoncarew/dart-lang/build
 Authorization: bearer {{token}}
 
 Accept: {{acceptHeader}}

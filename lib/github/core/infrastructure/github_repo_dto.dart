@@ -35,9 +35,11 @@ class GithubRepoDTO with _$GithubRepoDTO {
       stargazersCount: _.stargazersCount,
     );
   }
-
-  GithubRepo toDomain(){
-    return GithubRepo(owner: owner.toDomain(), name: name, description: description, stargazersCount: stargazersCount)
+  GithubRepo toDomain() {
+    return GithubRepo(
+        owner: owner.toDomain(),
+        name: name,
+        description: description,
+        stargazersCount: stargazersCount);
   }
-
 }
