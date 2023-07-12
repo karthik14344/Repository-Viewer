@@ -57,7 +57,7 @@ class StarredReposRemoteService {
             .toList();
         return RemoteResponse.withNewData(
           convertedData,
-          maxPage: headers.link?.maxPage ?? 0,
+          maxPage: headers.link?.maxPage ?? 1,
         ); //in the remote response file if the data is outdated we will be returning the new data..
       } else {
         //suppose if the status code is not one from the documentation we will be returning the same status code..
