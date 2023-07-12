@@ -3,7 +3,8 @@ import 'package:repo_viewer/github/core/infrastructure/github_headers.dart';
 import 'package:sembast/sembast.dart';
 
 class GithubHeadersCache {
-  final SembastDatabase _sembastDatabase;
+  final SembastDatabase
+      _sembastDatabase; //sembast to save gthe headers get the headers and delete the headers
   final _store = stringMapStoreFactory.store('headers');
 
   GithubHeadersCache(this._sembastDatabase);
