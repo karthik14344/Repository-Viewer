@@ -11,7 +11,10 @@ class StarredReposRemoteService {
   final Dio _dio;
   final GithubHeadersCache _headersCache;
 
-  StarredReposRemoteService(this._dio, this._headersCache);
+  StarredReposRemoteService(
+    this._dio,
+    this._headersCache,
+  );
 
   // indicating the page number of the starred repositories to retrieve
   Future<RemoteResponse<List<GithubRepoDTO>>> getStarredReposPage(
@@ -40,22 +43,31 @@ class StarredReposRemoteService {
         ),
       );
       if (response.statusCode == 304) {
-        return const RemoteResponse.notModified();
+        return RemoteResponse.notModified(
+          maxPage: previousHeaders?.link?.maxPage ?? 0,
+        );
       } else if (response.statusCode == 200) {
         final headers = GithubHeaders.parse(response);
-        await _headersCache.saveHeaders(requestUri, headers);
+        headers.link?.maxPage;
+        await _headersCache.saveHeaders(
+            requestUri, headers); //this is to save the headers..
         final convertedData = (response.data as List<
                 dynamic>) //this is to convert the response that we get from API which is in the form of json
             .map((e) => GithubRepoDTO.fromJson(e as Map<String, dynamic>))
             .toList();
         return RemoteResponse.withNewData(
-            convertedData); //in the remote response file if the data is outdated we will be returning the new data..
+          convertedData,
+          maxPage: headers.link?.maxPage ?? 0,
+        ); //in the remote response file if the data is outdated we will be returning the new data..
       } else {
+        //suppose if the status code is not one from the documentation we will be returning the same status code..
         throw RestApiException(response.statusCode);
       }
     } on DioError catch (e) {
       if (e.isNoConnectionError) {
-        return const RemoteResponse.noConnection();
+        return RemoteResponse.noConnection(
+          maxPage: previousHeaders?.link?.maxPage ?? 0,
+        );
       } else if (e.response != null) {
         throw RestApiException(e.response?.statusCode);
       } else {
