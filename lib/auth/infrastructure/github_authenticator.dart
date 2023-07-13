@@ -52,21 +52,18 @@ class GithubAuthenticator {
 
   Future<Credentials?> getSignedInCredentials() async {
     try {
-      final storedCredentials = await _credentialsStorage
-          .read(); //gettiing the stored credentiasls from credentials_storage
+      final storedCredentials = await _credentialsStorage.read();
       if (storedCredentials != null) {
-        //if the user is singned in
         if (storedCredentials.canRefresh && storedCredentials.isExpired) {
           final failureOrCredentials = await refresh(storedCredentials);
           return failureOrCredentials.fold((l) => null, (r) => r);
         }
       }
-
       return storedCredentials;
     } on PlatformException {
       return null;
     }
-  } // The async keyword marks the getSignedInCredentials() method as asynchronous and allows it to use await expressions, which pause execution until a future completes and then resumes with the result. This allows the method to perform I/O operations without blocking the main thread.
+  }
 
   Future<bool> isSignedIn() =>
       getSignedInCredentials().then((credentials) => credentials != null);
@@ -81,7 +78,6 @@ class GithubAuthenticator {
     );
   }
 
-  //this method is created to get the authorization url(authorization code grant is from oauth2 package)
   Uri getAuthorizationUrl(AuthorizationCodeGrant grant) {
     return grant.getAuthorizationUrl(redirecturl, scopes: scopes);
   }
@@ -103,10 +99,7 @@ class GithubAuthenticator {
     }
   }
 
-  //the below method is delete the access token because whenever the user gets signed in
-  //multiple access tokens will be created and they wont be deleted eventhough the user is signedout..
-  //the variables in below code are passed as per the delete token documentation.
-  Future<Either<AuthFailure, Unit>> signout() async {
+  Future<Either<AuthFailure, Unit>> signOut() async {
     try {
       final accessToken = await _credentialsStorage
           .read()
@@ -114,6 +107,7 @@ class GithubAuthenticator {
 
       final usernameAndPassword =
           stringToBase64.encode('$clientId:$clientSecret');
+
       try {
         await _dio.deleteUri(
           revocationEndpoint,
@@ -127,9 +121,8 @@ class GithubAuthenticator {
           ),
         );
       } on DioError catch (e) {
-        //changed dioerror to dio exception
         if (e.isNoConnectionError) {
-          //ignoring
+          // Ignoring
         } else {
           rethrow;
         }
@@ -153,13 +146,13 @@ class GithubAuthenticator {
     Credentials credentials,
   ) async {
     try {
-      final refreshCredentials = await credentials.refresh(
+      final refreshedCredentials = await credentials.refresh(
         identifier: clientId,
         secret: clientSecret,
         httpClient: GithubOAuthHttpClient(),
       );
-      await _credentialsStorage.save(refreshCredentials);
-      return right(refreshCredentials);
+      await _credentialsStorage.save(refreshedCredentials);
+      return right(refreshedCredentials);
     } on FormatException {
       return left(const AuthFailure.server());
     } on AuthorizationException catch (e) {
