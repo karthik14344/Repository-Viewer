@@ -54,7 +54,7 @@ class AuthNotifier extends StateNotifier<AuthState> {
     final failureOrSuccess = await _authenticator.signOut();
     state = failureOrSuccess.fold(
       (l) => AuthState.failure(l),
-      (r) => const AuthState.authenticated(),
+      (r) => const AuthState.unauthenticated(),
     );
   }
 }
