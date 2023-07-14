@@ -5,6 +5,8 @@ import 'package:material_design_icons_flutter/material_design_icons_flutter.dart
 import 'package:repo_viewer/auth/shared/providers.dart';
 import 'package:repo_viewer/github/core/shared/providers.dart';
 
+import 'paginated_repo_list_view.dart';
+
 @RoutePage()
 class StarredReposPage extends ConsumerStatefulWidget {
   const StarredReposPage({super.key});
@@ -42,16 +44,5 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
       ),
       body: PaginatedRepoListView(),
     );
-  }
-}
-
-class PaginatedRepoListView extends StatelessWidget {
-  const PaginatedRepoListView({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView();
   }
 }
