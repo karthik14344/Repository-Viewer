@@ -46,7 +46,7 @@ class StarredReposNotifier extends StateNotifier<StarredReposState> {
   int _page = 1;
 
   Future<void> getNextStarredReposPage() async {
-    //when ever this method is called i.e to load the next starred repos page
+    // when ever this method is called i.e to load the next starred repos page
     state = StarredReposState.loadInProgress(
       state.repos,
       PaginationConfig.itemsPerPage,
