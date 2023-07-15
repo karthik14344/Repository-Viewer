@@ -8,7 +8,9 @@ class NoResultsDisplay extends StatelessWidget {
   const NoResultsDisplay({super.key, required this.message});
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return Container(
+      padding: const EdgeInsets.all(8),
+      alignment: Alignment.center,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -19,6 +21,7 @@ class NoResultsDisplay extends StatelessWidget {
           Text(
             message,
             style: Theme.of(context).textTheme.bodyMedium,
+            textAlign: TextAlign.center,
           ),
         ],
       ),

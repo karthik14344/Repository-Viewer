@@ -66,7 +66,7 @@ class _PaginatedRepoListViewState extends State<PaginatedRepoListView> {
             loadInSuccess: (repos, _) => repos.entity.isEmpty,
             orElse: () => false,
           )
-              ? NoResultsDisplay(
+              ? const NoResultsDisplay(
                   message:
                       "That's about everything we could find out in your starred repos right now.")
               : _PaginatedListView(state: state),
