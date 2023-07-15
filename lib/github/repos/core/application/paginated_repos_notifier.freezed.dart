@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'starred_repos_notifier.dart';
+part of 'paginated_repos_notifier.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$StarredReposState {
+mixin _$PaginatedReposState {
   Fresh<List<GithubRepo>> get repos => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -80,15 +80,15 @@ mixin _$StarredReposState {
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $StarredReposStateCopyWith<StarredReposState> get copyWith =>
+  $PaginatedReposStateCopyWith<PaginatedReposState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $StarredReposStateCopyWith<$Res> {
-  factory $StarredReposStateCopyWith(
-          StarredReposState value, $Res Function(StarredReposState) then) =
-      _$StarredReposStateCopyWithImpl<$Res, StarredReposState>;
+abstract class $PaginatedReposStateCopyWith<$Res> {
+  factory $PaginatedReposStateCopyWith(
+          PaginatedReposState value, $Res Function(PaginatedReposState) then) =
+      _$PaginatedReposStateCopyWithImpl<$Res, PaginatedReposState>;
   @useResult
   $Res call({Fresh<List<GithubRepo>> repos});
 
@@ -96,9 +96,9 @@ abstract class $StarredReposStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$StarredReposStateCopyWithImpl<$Res, $Val extends StarredReposState>
-    implements $StarredReposStateCopyWith<$Res> {
-  _$StarredReposStateCopyWithImpl(this._value, this._then);
+class _$PaginatedReposStateCopyWithImpl<$Res, $Val extends PaginatedReposState>
+    implements $PaginatedReposStateCopyWith<$Res> {
+  _$PaginatedReposStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -129,7 +129,7 @@ class _$StarredReposStateCopyWithImpl<$Res, $Val extends StarredReposState>
 
 /// @nodoc
 abstract class _$$_InitialCopyWith<$Res>
-    implements $StarredReposStateCopyWith<$Res> {
+    implements $PaginatedReposStateCopyWith<$Res> {
   factory _$$_InitialCopyWith(
           _$_Initial value, $Res Function(_$_Initial) then) =
       __$$_InitialCopyWithImpl<$Res>;
@@ -143,7 +143,7 @@ abstract class _$$_InitialCopyWith<$Res>
 
 /// @nodoc
 class __$$_InitialCopyWithImpl<$Res>
-    extends _$StarredReposStateCopyWithImpl<$Res, _$_Initial>
+    extends _$PaginatedReposStateCopyWithImpl<$Res, _$_Initial>
     implements _$$_InitialCopyWith<$Res> {
   __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
       : super(_value, _then);
@@ -172,14 +172,14 @@ class _$_Initial extends _Initial with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'StarredReposState.initial(repos: $repos)';
+    return 'PaginatedReposState.initial(repos: $repos)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'StarredReposState.initial'))
+      ..add(DiagnosticsProperty('type', 'PaginatedReposState.initial'))
       ..add(DiagnosticsProperty('repos', repos));
   }
 
@@ -286,7 +286,7 @@ class _$_Initial extends _Initial with DiagnosticableTreeMixin {
   }
 }
 
-abstract class _Initial extends StarredReposState {
+abstract class _Initial extends PaginatedReposState {
   const factory _Initial(final Fresh<List<GithubRepo>> repos) = _$_Initial;
   const _Initial._() : super._();
 
@@ -300,7 +300,7 @@ abstract class _Initial extends StarredReposState {
 
 /// @nodoc
 abstract class _$$_LoadInProgressCopyWith<$Res>
-    implements $StarredReposStateCopyWith<$Res> {
+    implements $PaginatedReposStateCopyWith<$Res> {
   factory _$$_LoadInProgressCopyWith(
           _$_LoadInProgress value, $Res Function(_$_LoadInProgress) then) =
       __$$_LoadInProgressCopyWithImpl<$Res>;
@@ -314,7 +314,7 @@ abstract class _$$_LoadInProgressCopyWith<$Res>
 
 /// @nodoc
 class __$$_LoadInProgressCopyWithImpl<$Res>
-    extends _$StarredReposStateCopyWithImpl<$Res, _$_LoadInProgress>
+    extends _$PaginatedReposStateCopyWithImpl<$Res, _$_LoadInProgress>
     implements _$$_LoadInProgressCopyWith<$Res> {
   __$$_LoadInProgressCopyWithImpl(
       _$_LoadInProgress _value, $Res Function(_$_LoadInProgress) _then)
@@ -351,14 +351,14 @@ class _$_LoadInProgress extends _LoadInProgress with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'StarredReposState.loadInProgress(repos: $repos, itemsPerPage: $itemsPerPage)';
+    return 'PaginatedReposState.loadInProgress(repos: $repos, itemsPerPage: $itemsPerPage)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'StarredReposState.loadInProgress'))
+      ..add(DiagnosticsProperty('type', 'PaginatedReposState.loadInProgress'))
       ..add(DiagnosticsProperty('repos', repos))
       ..add(DiagnosticsProperty('itemsPerPage', itemsPerPage));
   }
@@ -468,7 +468,7 @@ class _$_LoadInProgress extends _LoadInProgress with DiagnosticableTreeMixin {
   }
 }
 
-abstract class _LoadInProgress extends StarredReposState {
+abstract class _LoadInProgress extends PaginatedReposState {
   const factory _LoadInProgress(
           final Fresh<List<GithubRepo>> repos, final int itemsPerPage) =
       _$_LoadInProgress;
@@ -485,7 +485,7 @@ abstract class _LoadInProgress extends StarredReposState {
 
 /// @nodoc
 abstract class _$$_LoadInSuccessCopyWith<$Res>
-    implements $StarredReposStateCopyWith<$Res> {
+    implements $PaginatedReposStateCopyWith<$Res> {
   factory _$$_LoadInSuccessCopyWith(
           _$_LoadInSuccess value, $Res Function(_$_LoadInSuccess) then) =
       __$$_LoadInSuccessCopyWithImpl<$Res>;
@@ -499,7 +499,7 @@ abstract class _$$_LoadInSuccessCopyWith<$Res>
 
 /// @nodoc
 class __$$_LoadInSuccessCopyWithImpl<$Res>
-    extends _$StarredReposStateCopyWithImpl<$Res, _$_LoadInSuccess>
+    extends _$PaginatedReposStateCopyWithImpl<$Res, _$_LoadInSuccess>
     implements _$$_LoadInSuccessCopyWith<$Res> {
   __$$_LoadInSuccessCopyWithImpl(
       _$_LoadInSuccess _value, $Res Function(_$_LoadInSuccess) _then)
@@ -537,14 +537,14 @@ class _$_LoadInSuccess extends _LoadInSuccess with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'StarredReposState.loadInSuccess(repos: $repos, isNextPageAvailable: $isNextPageAvailable)';
+    return 'PaginatedReposState.loadInSuccess(repos: $repos, isNextPageAvailable: $isNextPageAvailable)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'StarredReposState.loadInSuccess'))
+      ..add(DiagnosticsProperty('type', 'PaginatedReposState.loadInSuccess'))
       ..add(DiagnosticsProperty('repos', repos))
       ..add(DiagnosticsProperty('isNextPageAvailable', isNextPageAvailable));
   }
@@ -654,7 +654,7 @@ class _$_LoadInSuccess extends _LoadInSuccess with DiagnosticableTreeMixin {
   }
 }
 
-abstract class _LoadInSuccess extends StarredReposState {
+abstract class _LoadInSuccess extends PaginatedReposState {
   const factory _LoadInSuccess(final Fresh<List<GithubRepo>> repos,
       {required final bool isNextPageAvailable}) = _$_LoadInSuccess;
   const _LoadInSuccess._() : super._();
@@ -670,7 +670,7 @@ abstract class _LoadInSuccess extends StarredReposState {
 
 /// @nodoc
 abstract class _$$_LoadFailureCopyWith<$Res>
-    implements $StarredReposStateCopyWith<$Res> {
+    implements $PaginatedReposStateCopyWith<$Res> {
   factory _$$_LoadFailureCopyWith(
           _$_LoadFailure value, $Res Function(_$_LoadFailure) then) =
       __$$_LoadFailureCopyWithImpl<$Res>;
@@ -685,7 +685,7 @@ abstract class _$$_LoadFailureCopyWith<$Res>
 
 /// @nodoc
 class __$$_LoadFailureCopyWithImpl<$Res>
-    extends _$StarredReposStateCopyWithImpl<$Res, _$_LoadFailure>
+    extends _$PaginatedReposStateCopyWithImpl<$Res, _$_LoadFailure>
     implements _$$_LoadFailureCopyWith<$Res> {
   __$$_LoadFailureCopyWithImpl(
       _$_LoadFailure _value, $Res Function(_$_LoadFailure) _then)
@@ -730,14 +730,14 @@ class _$_LoadFailure extends _LoadFailure with DiagnosticableTreeMixin {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'StarredReposState.loadFailure(repos: $repos, failure: $failure)';
+    return 'PaginatedReposState.loadFailure(repos: $repos, failure: $failure)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'StarredReposState.loadFailure'))
+      ..add(DiagnosticsProperty('type', 'PaginatedReposState.loadFailure'))
       ..add(DiagnosticsProperty('repos', repos))
       ..add(DiagnosticsProperty('failure', failure));
   }
@@ -846,7 +846,7 @@ class _$_LoadFailure extends _LoadFailure with DiagnosticableTreeMixin {
   }
 }
 
-abstract class _LoadFailure extends StarredReposState {
+abstract class _LoadFailure extends PaginatedReposState {
   const factory _LoadFailure(
           final Fresh<List<GithubRepo>> repos, final GithubFailure failure) =
       _$_LoadFailure;
