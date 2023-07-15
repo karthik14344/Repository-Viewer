@@ -261,10 +261,10 @@ packages:
     dependency: "direct main"
     description:
       name: flash
-      sha256: "0ec6c32deb839a8ead1ba17a3bb055996f00ea6631384f4705ac6a08dec8b16c"
+      sha256: "693d627cab18a981ba95881fdee3b84aa0cfb366eeac8623e3e865d42060d589"
       url: "https://pub.dev"
     source: hosted
-    version: "3.0.5+1"
+    version: "1.5.2+2"
   flutter:
     dependency: "direct main"
     description: flutter

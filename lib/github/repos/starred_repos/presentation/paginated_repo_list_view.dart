@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:repo_viewer/core/presentation/toasts.dart';
+import 'package:repo_viewer/github/core/presentation/no_results_display.dart';
 import 'package:repo_viewer/github/core/shared/providers.dart';
 import 'package:repo_viewer/github/repos/starred_repos/application/starred_repos_notifier.dart';
 import 'package:repo_viewer/github/repos/starred_repos/presentation/repo_tile.dart';
@@ -19,6 +21,7 @@ class PaginatedRepoListView extends StatefulWidget {
 
 class _PaginatedRepoListViewState extends State<PaginatedRepoListView> {
   bool canLoadNextPage = false;
+  bool hasAlreadyShownNoConnectionToast = false;
 
   @override
   Widget build(BuildContext context) {
@@ -30,27 +33,44 @@ class _PaginatedRepoListViewState extends State<PaginatedRepoListView> {
             state.map(
               initial: (_) => canLoadNextPage = true,
               loadInProgress: (_) => canLoadNextPage = false,
-              loadInSuccess: (_) => canLoadNextPage = _.isNextPageAvailable,
+              loadInSuccess: (_) {
+                if (!_.repos.isFresh && !hasAlreadyShownNoConnectionToast) {
+                  hasAlreadyShownNoConnectionToast = true;
+                  showNoConnectionToast(
+                    "You're not online.Some information may be outdated.",
+                    context,
+                  );
+                }
+                canLoadNextPage = _.isNextPageAvailable;
+              },
               loadFailure: (_) => canLoadNextPage = false,
             );
           },
         );
         final state = ref.watch(starredReposNotifierProvider);
         return NotificationListener<ScrollNotification>(
-            onNotification: (notification) {
-              final metrics = notification.metrics;
-              final limit =
-                  metrics.maxScrollExtent - metrics.viewportDimension / 3;
+          onNotification: (notification) {
+            final metrics = notification.metrics;
+            final limit =
+                metrics.maxScrollExtent - metrics.viewportDimension / 3;
 
-              if (canLoadNextPage && metrics.pixels >= limit) {
-                canLoadNextPage = false;
-                ref
-                    .read(starredReposNotifierProvider.notifier)
-                    .getNextStarredReposPage();
-              }
-              return false;
-            },
-            child: _PaginatedListView(state: state));
+            if (canLoadNextPage && metrics.pixels >= limit) {
+              canLoadNextPage = false;
+              ref
+                  .read(starredReposNotifierProvider.notifier)
+                  .getNextStarredReposPage();
+            }
+            return false;
+          },
+          child: state.maybeWhen(
+            loadInSuccess: (repos, _) => repos.entity.isEmpty,
+            orElse: () => false,
+          )
+              ? NoResultsDisplay(
+                  message:
+                      "That's about everything we could find out in your starred repos right now.")
+              : _PaginatedListView(state: state),
+        );
       },
     );
   }

@@ -31,7 +31,7 @@ dependencies:
   path: ^1.8.3
   cached_network_image: ^3.2.3
   shimmer: ^3.0.0
-  flash: ^3.0.5+1
+  flash: ^1.5.2
   material_floating_search_bar: ^0.3.7
   url_launcher: ^6.1.11
 
