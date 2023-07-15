@@ -36,7 +36,21 @@ class _PaginatedRepoListViewState extends State<PaginatedRepoListView> {
           },
         );
         final state = ref.watch(starredReposNotifierProvider);
-        return _PaginatedListView(state: state);
+        return NotificationListener<ScrollNotification>(
+            onNotification: (notification) {
+              final metrics = notification.metrics;
+              final limit =
+                  metrics.maxScrollExtent - metrics.viewportDimension / 3;
+
+              if (canLoadNextPage && metrics.pixels >= limit) {
+                canLoadNextPage = false;
+                ref
+                    .read(starredReposNotifierProvider.notifier)
+                    .getNextStarredReposPage();
+              }
+              return false;
+            },
+            child: _PaginatedListView(state: state));
       },
     );
   }

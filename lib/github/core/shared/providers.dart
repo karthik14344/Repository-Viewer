@@ -11,18 +11,18 @@ final githubHeadersCacheProvider = Provider(
   (ref) => GithubHeadersCache(ref.watch(sembastProvider)),
 );
 
-final satrredReposLocalServiceProvider = Provider(
+final starredReposLocalServiceProvider = Provider(
   (ref) => StarredReposLocalService(ref.watch(sembastProvider)),
 );
-final satrredReposRemoteServiceProvider = Provider(
+final starredReposRemoteServiceProvider = Provider(
   (ref) => StarredReposRemoteService(
       ref.watch(dioProvider), ref.watch(githubHeadersCacheProvider)),
 );
 
 final starredReposRespositoryProvider = Provider(
   (ref) => StarredReposRepository(
-    ref.watch(satrredReposRemoteServiceProvider),
-    ref.watch(satrredReposLocalServiceProvider),
+    ref.watch(starredReposRemoteServiceProvider),
+    ref.watch(starredReposLocalServiceProvider),
   ),
 );
 
