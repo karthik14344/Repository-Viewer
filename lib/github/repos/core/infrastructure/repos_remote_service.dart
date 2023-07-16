@@ -43,7 +43,7 @@ abstract class ReposRemoteService {
         );
       } else if (response.statusCode == 200) {
         final headers = GithubHeaders.parse(response);
-        headers.link?.maxPage;
+
         await _headersCache.saveHeaders(
             requestUri, headers); //this is to save the headers..
         final convertedData = jsonDataSelector(response

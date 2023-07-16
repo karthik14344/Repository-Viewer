@@ -9,6 +9,7 @@ class Fresh<T> with _$Fresh<T> {
   const factory Fresh({
     required T entity,
     required bool isFresh,
+    // int? maxPage,
     bool? isNextPageAvailable,
   }) = _Fresh<T>;
 

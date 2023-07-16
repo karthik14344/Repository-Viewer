@@ -18,7 +18,6 @@ class LoadingRepoTile extends StatelessWidget {
           child: Container(
             height: 14,
             width: 100,
-            color: Colors.grey,
             decoration: BoxDecoration(
               color: Colors.grey,
               borderRadius: BorderRadius.circular(2),
@@ -30,7 +29,6 @@ class LoadingRepoTile extends StatelessWidget {
           child: Container(
             height: 14,
             width: 250,
-            color: Colors.grey,
             decoration: BoxDecoration(
               color: Colors.grey,
               borderRadius: BorderRadius.circular(2),
@@ -41,7 +39,7 @@ class LoadingRepoTile extends StatelessWidget {
         trailing: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.star_border),
+            const Icon(Icons.star_border),
             Text(
               '',
               style: Theme.of(context).textTheme.bodySmall,

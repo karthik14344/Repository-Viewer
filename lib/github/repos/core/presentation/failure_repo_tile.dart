@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:repo_viewer/github/core/domain/github_failure.dart';
 import 'package:repo_viewer/github/core/shared/providers.dart';
+import 'package:repo_viewer/github/repos/core/presentation/paginated_repo_list_view.dart';
 
 class FailureRepoTile extends ConsumerWidget {
   final GithubFailure failure;
@@ -21,22 +22,22 @@ class FailureRepoTile extends ConsumerWidget {
         color: Theme.of(context).colorScheme.error,
         margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: ListTile(
-          title: Text('An error occurred, please, retry'),
+          title: const Text('An error occurred, please, retry'),
           subtitle: Text(
             failure.map(api: (_) => 'Api returned ${_.errorCode}'),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
           ),
-          leading: SizedBox(
+          leading: const SizedBox(
             height: double.infinity,
             child: Icon(Icons.warning),
           ),
           trailing: IconButton(
-            icon: Icon(Icons.refresh),
+            icon: const Icon(Icons.refresh),
             onPressed: () {
-              ref
-                  .read(starredReposNotifierProvider.notifier)
-                  .getNextStarredReposPage();
+              context
+                  .findAncestorWidgetOfExactType<PaginatedRepoListView>()
+                  ?.getNextPage(ref);
             },
           ),
         ),

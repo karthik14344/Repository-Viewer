@@ -54,7 +54,7 @@ class _PaginatedRepoListViewState extends State<PaginatedRepoListView> {
             );
           },
         );
-        final state = ref.watch(starredReposNotifierProvider);
+        final state = ref.watch(widget.paginatedReposNotifierProvider);
         return NotificationListener<ScrollNotification>(
           onNotification: (notification) {
             final metrics = notification.metrics;
@@ -100,7 +100,7 @@ class _PaginatedListView extends StatelessWidget {
       ),
       itemBuilder: (context, index) {
         return state.map(
-          initial: (_) => Container(),
+          initial: (_) => RepoTile(repo: _.repos.entity[index]),
           loadInProgress: (_) {
             if (index < _.repos.entity.length) {
               return RepoTile(repo: _.repos.entity[index]);

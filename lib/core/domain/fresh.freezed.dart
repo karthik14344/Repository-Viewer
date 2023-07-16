@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Fresh<T> {
   T get entity => throw _privateConstructorUsedError;
-  bool get isFresh => throw _privateConstructorUsedError;
+  bool get isFresh => throw _privateConstructorUsedError; // int? maxPage,
   bool? get isNextPageAvailable => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -119,6 +119,7 @@ class _$_Fresh<T> extends _Fresh<T> with DiagnosticableTreeMixin {
   final T entity;
   @override
   final bool isFresh;
+// int? maxPage,
   @override
   final bool? isNextPageAvailable;
 
@@ -173,7 +174,7 @@ abstract class _Fresh<T> extends Fresh<T> {
   T get entity;
   @override
   bool get isFresh;
-  @override
+  @override // int? maxPage,
   bool? get isNextPageAvailable;
   @override
   @JsonKey(ignore: true)

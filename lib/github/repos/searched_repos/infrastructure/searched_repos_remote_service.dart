@@ -26,6 +26,6 @@ class SearchedReposRemoteService extends ReposRemoteService {
             'per_page': PaginationConfig.itemsPerPage.toString(),
           },
         ),
-        jsonDataSelector: ((json) => json['items'] as List<dynamic>),
+        jsonDataSelector: (json) => json['items'] as List<dynamic>,
       );
 }

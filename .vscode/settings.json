@@ -10,5 +10,8 @@
     "**/*.g.dart": true,
     "**/.gitkeep": false
   },
-  "explorerExclude.backup": {}
+  "explorerExclude.backup": {},
+  "cSpell.words": [
+    "microtask"
+  ]
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
 import 'package:repo_viewer/auth/shared/providers.dart';
+import 'package:repo_viewer/core/presentation/routes/app_router.gr.dart';
 import 'package:repo_viewer/github/core/shared/providers.dart';
 
 import '../../core/presentation/paginated_repo_list_view.dart';
@@ -16,6 +17,8 @@ class StarredReposPage extends ConsumerStatefulWidget {
 }
 
 class _StarredReposPageState extends ConsumerState<StarredReposPage> {
+  get onPressed => null;
+
   @override
   void initState() {
     super.initState();
@@ -38,6 +41,13 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
             icon: Icon(MdiIcons.logoutVariant),
             onPressed: () {
               ref.read(authNotifierProvider.notifier).signOut();
+            },
+          ),
+          IconButton(
+            icon: Icon(MdiIcons.magnify),
+            onPressed: () {
+              AutoRouter.of(context)
+                  .push(SearchedReposRoute(searchTerm: 'github'));
             },
           )
         ],

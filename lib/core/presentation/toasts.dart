@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 Future<void> showNoConnectionToast(String message, BuildContext context) async {
   await showFlash(
       context: context,
-      duration: Duration(seconds: 4),
+      duration: const Duration(seconds: 4),
       builder: (context, controller) {
         return Flash.dialog(
           controller: controller,
@@ -16,7 +16,7 @@ Future<void> showNoConnectionToast(String message, BuildContext context) async {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               message,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.white,
                 fontSize: 16,
               ),

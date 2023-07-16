@@ -14,7 +14,7 @@ class SembastDatabase {
     _hasBeenInitialized = true;
 
     final dbDirectory = await getApplicationDocumentsDirectory();
-    dbDirectory.create(recursive: true);
+    await dbDirectory.create(recursive: true);
     final dbpath = join(dbDirectory.path, 'db.sembast');
     _instance = await databaseFactoryIo.openDatabase(dbpath);
   }

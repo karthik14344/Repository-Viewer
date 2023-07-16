@@ -20,6 +20,7 @@ class GithubHeaders with _$GithubHeaders {
     String? etag, //for cacheting the githubrepos
     PaginationLink? link, // to know the last page that we can possible get
   }) = _GithubHeaders;
+
   factory GithubHeaders.parse(Response response) {
     final link = response.headers.map['link']?[0];
 

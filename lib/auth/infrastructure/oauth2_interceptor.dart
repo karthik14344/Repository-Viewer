@@ -35,6 +35,7 @@ class OAuth2Interceptor extends Interceptor {
     final errorResponse = err.response;
     if (errorResponse != null && errorResponse.statusCode == 401) {
       final credentials = await _authenticator.getSignedInCredentials();
+
       credentials != null && credentials.canRefresh
           ? await _authenticator.refresh(credentials)
           : await _authenticator.clearCredentialsStorage();
@@ -50,6 +51,8 @@ class OAuth2Interceptor extends Interceptor {
           ),
         );
       }
+    } else {
+      handler.next(err);
     }
   }
 }
