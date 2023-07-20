@@ -47,7 +47,7 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
             icon: Icon(MdiIcons.magnify),
             onPressed: () {
               AutoRouter.of(context)
-                  .push(SearchedReposRoute(searchTerm: 'github'));
+                  .push(SearchedReposRoute(searchTerm: 'flutter'));
             },
           )
         ],

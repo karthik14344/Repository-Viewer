@@ -10,8 +10,8 @@ import 'package:repo_viewer/github/repos/core/presentation/loading_repo_tile.dar
 import 'package:repo_viewer/github/repos/core/presentation/repo_tile.dart';
 
 class PaginatedRepoListView extends StatefulWidget {
-  final StateNotifierProvider<PaginatedReposNotifier, PaginatedReposState>
-      paginatedReposNotifierProvider;
+  final AutoDisposeStateNotifierProvider<PaginatedReposNotifier,
+      PaginatedReposState> paginatedReposNotifierProvider;
   final void Function(WidgetRef ref) getNextPage;
   final String noResultsMessage;
 
