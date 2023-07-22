@@ -40,17 +40,15 @@ class _StarredReposPageState extends ConsumerState<StarredReposPage> {
         onSignOutButtonPressed: () {
           ref.read(authNotifierProvider.notifier).signOut();
         },
-        body: SafeArea(
-          child: PaginatedRepoListView(
-            paginatedReposNotifierProvider: starredReposNotifierProvider,
-            getNextPage: (ref) {
-              ref
-                  .read(starredReposNotifierProvider.notifier)
-                  .getNextStarredReposPage();
-            },
-            noResultsMessage:
-                "That's about everything we could find in your starred repos right now.",
-          ),
+        body: PaginatedRepoListView(
+          paginatedReposNotifierProvider: starredReposNotifierProvider,
+          getNextPage: (ref) {
+            ref
+                .read(starredReposNotifierProvider.notifier)
+                .getNextStarredReposPage();
+          },
+          noResultsMessage:
+              "That's about everything we could find in your starred repos right now.",
         ),
       ),
     );
