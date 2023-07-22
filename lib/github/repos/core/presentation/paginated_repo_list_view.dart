@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:material_floating_search_bar_2/material_floating_search_bar_2.dart';
 import 'package:repo_viewer/core/presentation/toasts.dart';
 import 'package:repo_viewer/github/core/presentation/no_results_display.dart';
 import 'package:repo_viewer/github/core/shared/providers.dart';
@@ -91,7 +92,10 @@ class _PaginatedListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final fsb = FloatingSearchBar.of(context)?.widget;
     return ListView.builder(
+      padding:
+          fsb == null ? EdgeInsets.zero : EdgeInsets.only(top: fsb.height + 8),
       itemCount: state.map(
         initial: (_) => 0,
         loadInProgress: (_) => _.repos.entity.length + _.itemsPerPage,
